@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMART CCTV SURVEILLANCE SYSTEM</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg-custom" style="background-image: url('{{ background_image_url }}');">
+    <div>
+        <h1>SMART CCTV SURVEILLANCE SYSTEM</h1>
+        <button id="button1" disabled>Start Face Detection</button>
+        <div id="videoContainer">
+            <form action="{{ url_for('start_fire_detection') }}" method="post">
+                <input type="submit" value="Start Fire Detection" id="startButton">
+            </form>
+            <img id="videoFeed" src="{{ url_for('video_feed') }}" alt="Fire Detection" style="width: 100%;">
+        </div>
+        
+        <button id="button2" disabled>Start Parking Assistance</button>
+    </div>
+
+    <script>
+        function startVideo() {
+            document.getElementById('startButton').style.display = 'none';
+            document.getElementById('videoFeed').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
